@@ -19,7 +19,7 @@ namespace SetLab
         {
             if (k > N)
             {
-                throw new MaxValueException("Попытка добавить число больше максимального.", k);
+                throw new MaxValueException("Попытка добавить число больше максимального.");
             }
             else
             {
@@ -43,7 +43,7 @@ namespace SetLab
         public static BitSet operator+(BitSet left, BitSet right)
         {
             BitSet result = new BitSet(Math.Max(left.N, right.N));
-            for (int i = 1; i < result.N; ++i)
+            for (int i = 1; i <= result.N; ++i)
             {
                 if (left.Contains(i) || right.Contains(i))
                 {
@@ -56,7 +56,7 @@ namespace SetLab
         public static BitSet operator *(BitSet left, BitSet right)
         {
             BitSet result = new BitSet(Math.Max(left.N, right.N));
-            for (int i = 1; i < result.N; ++i)
+            for (int i = 1; i <= result.N; ++i)
             {
                 if (left.Contains(i) && right.Contains(i))
                 {

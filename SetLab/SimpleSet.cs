@@ -22,7 +22,7 @@ namespace SetLab
         {
             if (k > N)
             {
-                throw new MaxValueException("Попытка добавить число больше максимального.", k);
+                throw new MaxValueException("Попытка добавить число больше максимального.");
             } 
             else
             {
@@ -46,11 +46,23 @@ namespace SetLab
         public static SimpleSet operator+(SimpleSet left, SimpleSet right)
         {
             SimpleSet result = new SimpleSet(Math.Max(left.N, right.N));
-            for (int i = 1; i < result.N; ++i)
+            for (int i = 1; i <= Math.Min(left.N, right.N); ++i)
             {
                 if (left.Contains(i) || left.Contains(i))
                 {
                     result.Add(i);
+                }
+            }
+            for (int j = Math.Min(left.N, right.N) + 1; j <= result.N; ++j) {
+                if (left.N == Math.Min(left.N, right.N))
+                {
+                    if (right.Contains(j))
+                        result.Add(j);
+                }
+                else
+                {
+                    if (left.Contains(j))
+                        result.Add(j);
                 }
             }
             return result;
@@ -59,7 +71,7 @@ namespace SetLab
         public static SimpleSet operator*(SimpleSet left, SimpleSet right)
         {
             SimpleSet result = new SimpleSet(Math.Max(left.N, right.N));
-            for (int i = 1; i < result.N; ++i)
+            for (int i = 1; i <= Math.Min(left.N, right.N); ++i)
             {
                 if (left.Contains(i) && right.Contains(i))
                 {
