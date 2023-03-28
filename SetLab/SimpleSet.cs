@@ -48,7 +48,7 @@ namespace SetLab
             SimpleSet result = new SimpleSet(Math.Max(left.N, right.N));
             for (int i = 1; i <= Math.Min(left.N, right.N); ++i)
             {
-                if (left.Contains(i) || left.Contains(i))
+                if (left.Contains(i) || right.Contains(i))
                 {
                     result.Add(i);
                 }

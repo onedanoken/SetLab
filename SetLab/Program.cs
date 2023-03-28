@@ -166,10 +166,10 @@ namespace SetLab
             set2.Fill("1 3 4 8 12 13 14 15 25");
 
             SimpleSet set3 = set1 + set2;
-            // SimpleSet set4 = set1 * set2;
+            SimpleSet set4 = set1 * set2;
 
             set3.Print();
-            // set4.Print();
+            set4.Print();
         }
     }
 }
