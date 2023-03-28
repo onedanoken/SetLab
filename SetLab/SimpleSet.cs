@@ -10,7 +10,7 @@ namespace SetLab
 {
     class SimpleSet : Set
     {
-        private bool[] m;
+        public bool[] m;
 
         public SimpleSet(int maxValue)
         {
@@ -22,7 +22,7 @@ namespace SetLab
         {
             if (k > N)
             {
-                throw new MaxValueException("Выход за пределы множества");
+                throw new MaxValueException("Попытка добавить число больше максимального.");
             } 
             else
             {
