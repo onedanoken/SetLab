@@ -10,81 +10,63 @@ namespace SetLab
 {
     class SimpleSet : Set
     {
-        private bool[] boolNumbers;
+        private bool[] m;
 
-        public SimpleSet(int N)
+        public SimpleSet(int maxValue)
         {
-             this.N = N;
+            N = maxValue;
+            m = new bool[maxValue + 1];
         }
 
-        public override bool Add(int k)
+        public override void Add(int k)
         {
-            if (N < k) 
+            if (k > N)
             {
-                bool[] tmpBoolNumbers = new bool[k + 1];
-                for (int i = 0; i < boolNumbers.Length; i++)
-                {
-                    if (boolNumbers[i] == true) { tmpBoolNumbers[i] = true; }
-                }
-                boolNumbers = tmpBoolNumbers;
-                boolNumbers[k] = true;
-                return true;
-            }
-            if (boolNumbers[k] == false)
+                throw new MaxValueException("Выход за пределы множества");
+            } 
+            else
             {
-                boolNumbers[k] = true;
-                return true;
+                m[k - 1] = true; // Ввиду индексации с нуля.
             }
-            return false;
         }
 
-        public override bool Remove(int k)
+        public override void Remove(int k)
         {
-            if (boolNumbers.Length < N) return false;
-            if (boolNumbers[k] == true) 
+            if (Contains(k))
             {
-                boolNumbers[k] = false;
-                return true;
+                m[k - 1] = false;
             }
-            return false;
         }
 
         public override bool Contains(int k)
         {
-            if (boolNumbers[k] == true) return true;
-            return false;
+            return m[k - 1];
         }
 
         public static SimpleSet operator+(SimpleSet left, SimpleSet right)
         {
-            var max = 1;
-            bool[] newBoolNumbers = new bool[Math.Max(left.N, right.N)];
-            for (int i = 0; i < left.boolNumbers.Length; ++i)
+            SimpleSet result = new SimpleSet(Math.Max(left.N, right.N));
+            for (int i = 1; i < result.N; ++i)
             {
-                if (left.boolNumbers[i] == true)
+                if (left.Contains(i) || left.Contains(i))
                 {
-                    newBoolNumbers[i] = true;
-                    if (i > max) 
-                        max = i;
+                    result.Add(i);
                 }
             }
-            for (int i = 0; i < right.boolNumbers.Length; ++i)
-            {
-                if (right.boolNumbers[i] == true && newBoolNumbers[i] == false)
-                {
-                    newBoolNumbers[i] = true;
-                    if (i > max)
-                        max = i;
-                }
-            }
-            SimpleSet result = new SimpleSet(max);
-            result.boolNumbers = newBoolNumbers;
             return result;
         }
 
         public static SimpleSet operator*(SimpleSet left, SimpleSet right)
         {
-
+            SimpleSet result = new SimpleSet(Math.Max(left.N, right.N));
+            for (int i = 1; i < result.N; ++i)
+            {
+                if (left.Contains(i) && right.Contains(i))
+                {
+                    result.Add(i);
+                }
+            }
+            return result;
         }
     }
 } 
