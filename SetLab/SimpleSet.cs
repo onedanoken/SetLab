@@ -22,7 +22,7 @@ namespace SetLab
         {
             if (k > N)
             {
-                throw new MaxValueException("Попытка добавить число больше максимального.");
+                throw new MaxValueException("Попытка добавить число больше максимального.", k);
             } 
             else
             {

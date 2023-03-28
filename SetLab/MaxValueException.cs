@@ -8,6 +8,6 @@ namespace SetLab
 {
     public class MaxValueException : Exception
     {
-        public MaxValueException(string message) : base(message) { }
+        public MaxValueException(string message) : base(message) { }; 
     }
 }
