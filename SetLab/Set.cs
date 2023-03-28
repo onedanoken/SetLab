@@ -20,10 +20,7 @@ namespace SetLab
             string[] nums = str.Split(' ');
             foreach (string s in nums)
             {
-                if (Convert.ToInt32(s) <= N)
-                {
-                    this.Add(Convert.ToInt32(s));
-                }
+                this.Add(Convert.ToInt32(s));
             }
         }
         public void Fill(int[] nums)
