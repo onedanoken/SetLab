@@ -172,8 +172,8 @@ namespace SetLab
             //set3.Print();
             //set4.Print();
 
-            BitSet set1 = new SimpleSet(12);
-            BitSet set2 = new SimpleSet(25);
+            BitSet set1 = new BitSet(12);
+            BitSet set2 = new BitSet(25);
 
             set1.Fill("1 3 4 7 9 10 11");
             set2.Fill("1 3 4 8 12 13 14 15 25");

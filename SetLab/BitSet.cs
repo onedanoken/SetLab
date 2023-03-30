@@ -43,7 +43,7 @@ namespace SetLab
         {
             int index = k % 32 == 0 ? k / 32 - 1 : k / 32;
             int value = k % 32 - 1;
-            return (b[index] & (1 << (value)) != 0);
+            return (b[index] & (1 << (value))) != 0;
         }
 
         public static BitSet operator+(BitSet left, BitSet right)
