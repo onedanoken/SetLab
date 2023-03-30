@@ -23,7 +23,9 @@ namespace SetLab
             }
             else
             {
-                b[k % 32 == 0 ? k % 32 - 1 : k % 32] |= 1 << (k % 32 - 1);
+                int index = k % 32 == 0 ? k / 32 - 1 : k / 32;
+                int value = k % 32 - 1;
+                b[index] |= 1 << (value);
             }
         }
 
@@ -31,13 +33,17 @@ namespace SetLab
         {
             if (Contains(k))
             {
-                b[k % 32 == 0 ? k % 32 - 1 : k % 32] &= ~(1 << (k % 32 - 1));
+                int index = k % 32 == 0 ? k / 32 - 1 : k / 32;
+                int value = k % 32 - 1;
+                b[index] &= ~(1 << (value));
             }
         }
 
         public override bool Contains(int k)
         {
-            return (b[k % 32 == 0 ? k % 32 - 1 : k % 32] >> (k % 32 - 1)) << 31 == (1 << 31);    
+            int index = k % 32 == 0 ? k / 32 - 1 : k / 32;
+            int value = k % 32 - 1;
+            return (b[index] & (1 << (value)) != 0);
         }
 
         public static BitSet operator+(BitSet left, BitSet right)

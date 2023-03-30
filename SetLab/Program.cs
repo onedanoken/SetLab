@@ -43,7 +43,7 @@ namespace SetLab
             //        {
             //            set = new SimpleSet(maxValue);
             //            break;
-            //        }  
+            //        }
             //        else if (set_name == "bitset")
             //        {
             //            set = new BitSet(maxValue);
@@ -79,7 +79,7 @@ namespace SetLab
             //        catch (Exception e)
             //        {
             //            Console.WriteLine("Ошибка:" + e.Message);
-                        
+
             //        }
             //    }
             //    set.Fill(setNumbers);
@@ -95,7 +95,7 @@ namespace SetLab
             //            Console.WriteLine("Напишите число, с которым вы хотите работать: ");
             //            string number;
             //            int intNumber;
-            //            while(true)
+            //            while (true)
             //            {
             //                number = Console.ReadLine();
             //                if (int.TryParse(number, out intNumber))
@@ -114,21 +114,22 @@ namespace SetLab
             //            Console.WriteLine("Напишите Add - добавить элемент в множество.");
             //            Console.WriteLine("Напишите Remove - удалить элемент из множества.");
             //            Console.WriteLine("Напишите Contains - проверить элемент в множестве");
-            //            while(true)
+            //            while (true)
             //            {
-            //                command= Console.ReadLine();
+            //                command = Console.ReadLine();
             //                if (command == "Add")
             //                {
             //                    set.Add(intNumber);
             //                    break;
             //                }
-            //                else if (command == "Remove") {
+            //                else if (command == "Remove")
+            //                {
             //                    set.Remove(intNumber);
             //                    break;
             //                }
             //                else if (command == "Contains")
             //                {
-            //                    if(set.Contains(intNumber))
+            //                    if (set.Contains(intNumber))
             //                    {
             //                        Console.WriteLine("Элемент присутствует в множестве.");
             //                        break;
@@ -159,14 +160,26 @@ namespace SetLab
             //}
 
             // Операторные тесты.
-            SimpleSet set1= new SimpleSet(12);
-            SimpleSet set2 = new SimpleSet(25);
+            //SimpleSet set1 = new SimpleSet(12);
+            //SimpleSet set2 = new SimpleSet(25);
+
+            //set1.Fill("1 3 4 7 9 10 11");
+            //set2.Fill("1 3 4 8 12 13 14 15 25");
+
+            //SimpleSet set3 = set1 + set2;
+            //SimpleSet set4 = set1 * set2;
+
+            //set3.Print();
+            //set4.Print();
+
+            BitSet set1 = new SimpleSet(12);
+            BitSet set2 = new SimpleSet(25);
 
             set1.Fill("1 3 4 7 9 10 11");
             set2.Fill("1 3 4 8 12 13 14 15 25");
 
-            SimpleSet set3 = set1 + set2;
-            SimpleSet set4 = set1 * set2;
+            BitSet set3 = set1 + set2;
+            BitSet set4 = set1 * set2;
 
             set3.Print();
             set4.Print();
